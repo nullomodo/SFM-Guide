@@ -1,0 +1,29 @@
+# Winter's Computing – shared gitleaks config
+# Same file in every repo. Uses gitleaks' built-in rules, and skips
+# third-party and test code that keeps raising false alarms.
+# Real findings you've dealt with (key rotated / dead) go in .gitleaksignore,
+# one fingerprint per line, so this file can stay identical everywhere.
+
+title = "Winter's Computing shared gitleaks config"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Third-party code, build output and test fixtures"
+paths = [
+  # Composer / npm dependencies (incl. the .vendor folder in pat-testing)
+  '''(^|/)\.?vendor/''',
+  '''(^|/)node_modules/''',
+  # WordPress core and plugins (copies of other people's code)
+  '''(^|/)wp-admin/''',
+  '''(^|/)wp-includes/''',
+  '''(^|/)wp-content/plugins/''',
+  '''(^|/)plugin_backup/''',
+  '''(^|/)wp-content/themes/twenty[a-z]+/''',
+  # Minified / bundled JavaScript
+  '''\.min\.js$''',
+  '''\.chunk\.js$''',
+  # Automated tests and fixtures (dummy keys only)
+  '''(^|/)tests?/''',
+]
