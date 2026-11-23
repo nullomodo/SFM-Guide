@@ -21,6 +21,8 @@ paths = [
   '''(^|/)wp-content/plugins/''',
   '''(^|/)plugin_backup/''',
   '''(^|/)wp-content/themes/twenty[a-z]+/''',
+  # Perch CMS core (third-party code bundled with the SFM sites)
+  '''(^|/)perch/(3\.2)?core/''',
   # Minified / bundled JavaScript
   '''\.min\.js$''',
   '''\.chunk\.js$''',
