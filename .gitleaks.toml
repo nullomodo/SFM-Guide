@@ -9,7 +9,7 @@ title = "Winter's Computing shared gitleaks config"
 [extend]
 useDefault = true
 
-[[allowlists]]
+[allowlist]
 description = "Third-party code, build output and test fixtures"
 paths = [
   # Composer / npm dependencies (incl. the .vendor folder in pat-testing)
